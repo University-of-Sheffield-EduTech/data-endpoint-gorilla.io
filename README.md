@@ -270,3 +270,7 @@ I hope you enjoyed this relatively short tutorial and hopefully it's given you a
 The code isn't the *cleanest* by far - for example, the conditional for the do-while loop could behave abnormally so you are welcome to edit it if you wish - it will work in the majority of use cases. 
 
 A full copy of the code is available [here](https://github.com/University-of-Sheffield-EduTech/data-endpoint-gorilla.io/blob/master/File_Downloader.R). 
+
+## How did you figure this out?
+
+Well, I just looked at how the site communicates with itself when every button is pressed on that data page - looked at the calls and what information they sent and then just worked backwards. The only tool I used to decipher this was Google Chrome's Inspector/Developer Tools just to watch the calls and to look at the files that Gorilla loads up. Then I basically did what Gorilla does but just in R!
