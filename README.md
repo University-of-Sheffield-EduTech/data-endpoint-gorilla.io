@@ -50,9 +50,10 @@ You can email [me](mailto::f.igali@sheffield.ac.uk).
 
 Well, that is a good question. Probably in R studio - the first thing we'll need to do is install some packages. Here is a screenshot of what my R studio setup looks like for those that are unfamiliar with it:
 
-![R studio setup][picture]
 
-[picture]: https://github.com/University-of-Sheffield-EduTech/data-endpoint-gorilla.io/blob/master/Images/R-Studio.png
+
+<img src="{{ site.baseurl }}//Images/R-Studio.png">
+
 
 
 So, once you have R Studio open, let's install the packages we need for this one - they're loaded at the top of the script but for those that are new to R, let's show you how to install them. 
@@ -136,11 +137,14 @@ Gorilla goes to the base URL - gorilla.sc
 It then reroutes to the experiment based on a retrieved number based on the project you clicked on. 
 In my case, I am using an ID of 19847 - you can see this in the image below:
 
-![Gorilla Experiment URL](https://github.com/University-of-Sheffield-EduTech/data-endpoint-gorilla.io/blob/master/Images/Experiment_ID.png)
+
+<img src="{{ site.baseurl }}//Images/Experiment_ID.png">
 
 Why is experiment ID and version important? Well it's how Gorilla navigates around the webpages to show you the correct thing. If you use developer tools on Chrome, you'll find a file called a file about Gorilla Metrics that has a function that shows you how this call is done for example when you press the generate or regenarate data buttons: 
 
-![Gorilla Build Report Function](https://github.com/University-of-Sheffield-EduTech/data-endpoint-gorilla.io/blob/master/Images/Gorilla_Build_Report_Function.png)
+
+<img src="{{ site.baseurl }}/Images/Gorilla_Build_Report_Function.png">
+
 
 Basically, the Gorilla call goes like this - I'll include the HTTP request and headers so you can see what it looks like: 
 
@@ -177,7 +181,9 @@ var buildReport = function (treeNodeKey, nodeLabel, nodeType, unblind, form, tim
 
 So basically, what happens is that when buildReport is called, with that XHR request, a function is made that takes a few parameters. These parameters are the options you see on your screen when you are downloading the data and it is ones that we can manipulate in R:
 
-![Gorilla Data Download Options](https://github.com/University-of-Sheffield-EduTech/data-endpoint-gorilla.io/blob/master/Images/Experiment_Download_Options.png)
+<img src="{{ site.baseurl }}/Images/Experiment_Download_Options.png">
+
+
 
 The bit where you see data: - that's what is known as JSON - which is just basically a fancy matrix/array of key:value pairs - ie a key like 'name' and a value like 'Ferenc'. In this case, when the request goes, Gorilla asks for whether we want to blind/unblind, what time from and to we want, what file type we want and what form we want it in. 
 
