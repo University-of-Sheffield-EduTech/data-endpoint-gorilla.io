@@ -13,9 +13,9 @@ The full R file for downloading is available in this repo (Github slang for repo
 
 Well, whenever you do something on the web that requires an interaction with a database or retrieving anything, you need to make some sort of action that will tell it what to do. In this case, we are going to ask **Gorilla** for a couple of things:
 
-1) We will go through the API (the non-published bit that internally points to different URLs - which are known as **endpoints**  to call the login page and then send our login details. 
+1) We will go through the API (the non-published bit that internally points to different URLs - which are known as **endpoints**  to call the login page and then send our login details). 
 2) We will then call the experiment page that you would call visually - except we are going to call the **endpoints** that the buttons refer to when you press on 'Generate Data' and 'Download Data' - I will show you how to edit 
-3) Just like the Gorilla script that is called on the page when you press Generate Data, we will ping the server every 3 seconds (anymore would be spamming!) till our report is ready and we can download it - we will do this using a **do-while** loop in R. 
+3) Just like the Gorilla script that is called on the page when you press 'Generate Data', we will ping the server every 3 seconds (anymore would be spamming!) till our report is ready and we can download it - we will do this using a **do-while** loop in R. 
 4) Once the file is ready, we download the file and then we unzip it and stick all the CSVs we download together (if you want to separate out your CSVs, that's beyond the scope of this tutorial. This is purely for 'how do I get the data out of Gorilla without logging in on an actual webpage' - something which you can automate if you need!. 
 
 ## What type of HTTP requests are there and which ones do we need?
@@ -40,7 +40,7 @@ The rest of this tutorial does assume that you have some exposure to R and R stu
 
 ## Why haven't you made this into a proper site like Emma's tutorial? 
 
-Mostly as a programmer, I am just lazy - if people would prefer a nice tutorial with pagination and so on, do let me know. 
+Mostly as a programmer, I am just overworked (and a tad bit lazy with UX after I've solved a problem) - if people would prefer a nice tutorial with pagination and so on, do let me know and I'll see if I can make it better (I'm sticking this all into the README on Github to make everyone's lives easier for now).  
 
 ## How can I get in touch with you?
 
