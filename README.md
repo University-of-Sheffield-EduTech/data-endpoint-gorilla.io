@@ -50,7 +50,10 @@ You can email [me](mailto::f.igali@sheffield.ac.uk).
 
 Well, that is a good question. Probably in R studio - the first thing we'll need to do is install some packages. Here is a screenshot of what my R studio setup looks like for those that are unfamiliar with it:
 
-![R studio setup]({{site.url}}/Images/R-Studio.png )
+![R studio setup][picture]
+
+[picture]: https://github.com/University-of-Sheffield-EduTech/data-endpoint-gorilla.io/blob/master/Images/R-Studio.png
+
 
 So, once you have R Studio open, let's install the packages we need for this one - they're loaded at the top of the script but for those that are new to R, let's show you how to install them. 
 
@@ -76,14 +79,15 @@ So once keyring is setup, how do we actually launch it/add it to our active sess
 
 Well, there is a very good tutorial on the benefits and what keyring can do as well as other methods for securing your credentials, that is available [here](https://db.rstudio.com/best-practices/managing-credentials/) so I won't delve too far into it - I will just show you how to setup a quick username and password storage using a generic database saved connection (don't worry, it doesn't connect to a database until you call it - a database name is just used as a key to retrieve your username and password so you can save different credentials for different logins with keyring). 
 
-```keyring::key_set(service = "my-database", username = "f.igali@sheffield.ac.uk")
+```r
+keyring::key_set(service = "my-database", username = "f.igali@sheffield.ac.uk")
 ```
 
 Using their example, I set the service to be called 'my-database' but feel free to call this 'Gorilla' or whatever else makes sense to you - it is the name of the connection. For Username, enter your Gorilla username as I have done above. When you run the command, you will be able to set a password that will be retrievable once you type it in. 
 
 In my R script, I quite simply do the following: 
 
-```
+```r
   #this is to retrieve your password and username 
   login <- list(
     email = keyring::key_list("my-database")[1,2],
@@ -102,7 +106,7 @@ So go ahead and install **httr, plyr and downloader** which are all available as
 ## Now onto the script:
 
 The first part of the script goes like this: 
-```
+```r
 #we set up a directory to store our zip files in
 outDir = "C:\\Users\\Ferenc\\Desktop\\Gorilla_Test"
 
@@ -156,7 +160,7 @@ unblind: false
 ```
 
 The JavaScript function that gets called is like this: 
-```
+```javascript
 var buildReport = function (treeNodeKey, nodeLabel, nodeType, unblind, form, timeFrom, timeTo, filetype) {
         return runtime.apiAsync({
             url: '/api/experiment/' + experimentID + '/' + experimentVersion + '/node/' + treeNodeKey + '/report/build',
@@ -179,7 +183,7 @@ The bit where you see data: - that's what is known as JSON - which is just basic
 
 Now if we go back to the R code:
 
-```
+```r
 #these are the options you get when downloading your data
 download_options_2 <- list (
   filetype =  "csv",
@@ -195,7 +199,7 @@ Hey look - we just made another list where we fed it the same options like name 
 
 Well, in between you'll notice that I put a line that does the following: 
 
-```
+```r
 #this logs you in
 login_res <- POST("https://gorilla.sc/api/login", body = login, encode = "form")
 ```
@@ -206,7 +210,7 @@ What this line does is log you in by sending a POST request with the body of tha
 Well, next is pretty simple: we want to Gorilla to create or refresh the data of our experiment. We do this exactly the same as if you had clicked the button - we ask it to make that buildReport function. 
 
 Well, how can R do that? Currently, we are logged in using our login_res code so we're already authenticated. The next step is to go directly to the experiment and make it build a report - and that's what we do here:
-```
+```r
 
 #request report
 report_generate_request <- POST(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/",tree_node_key,"/report/build", sep = "", collapse = NULL), body = download_options_2, encode = "json")
@@ -217,7 +221,7 @@ What we are doing here is concatenating/pasting together a URL and then giving i
 Next bit of code is fairly straightforward: 
 
 We basically try downloading our data. It won't happen because just like the message you get from Gorilla about the data waiting to be downloaded and ready, we get the same message from the endpoint (which is how they display it to you using XHR/Ajax). Gorilla stores these in blob storage on Azure so we're just trying to retrieve our specific data storage.  
-```
+```r
 
 #set up initial variables for download 
 experiment_download_url <- GET(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/", tree_node_key,"/report/download", sep = "", collapse = NULL))
@@ -230,7 +234,7 @@ file_download_url <- toString(file_download_url_resp[2])
 
 The last line just literally retrieves the content from the webpage that we are GETting. Before Gorilla is ready to give us any data, we won't get a URL back, we'll get back a 'THis report is being generated' which we use in the next bit of code. 
 
-```
+```r
 #this do while basically waits until the report is ready and keeps pinging the server - I use 3 second pings like the gorilla metrics JS code
 while (file_download_url == "The report is currently being generated") {
   experiment_download_tester <- GET(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version,"/node/",tree_node_key,"/report", sep = "", collapse = NULL))
@@ -253,7 +257,7 @@ Once we get a URL, we will move on and R will cancel the loop.
 The next bit is fairly self-explanatory - we download the zip file, name it 'downloader.zip' and we set a mode to download in (rememebr, we asked for all nodes so we're downloading all the CSVs for the experiment). 
 
 
-```
+```r
 #download the file
 download(file_download_url,"downloader.zip", mode = "wb")
 
