@@ -50,7 +50,7 @@ You can email [me](mailto::f.igali@sheffield.ac.uk).
 
 Well, that is a good question. Probably in R studio - the first thing we'll need to do is install some packages. Here is a screenshot of what my R studio setup looks like for those that are unfamiliar with it:
 
-![R studio setup]({{site.url}}/Images/categories/R-Studio.png )
+![R studio setup]({{site.url}}/Images/R-Studio.png )
 
 So, once you have R Studio open, let's install the packages we need for this one - they're loaded at the top of the script but for those that are new to R, let's show you how to install them. 
 
@@ -76,8 +76,8 @@ So once keyring is setup, how do we actually launch it/add it to our active sess
 
 Well, there is a very good tutorial on the benefits and what keyring can do as well as other methods for securing your credentials, that is available [here](https://db.rstudio.com/best-practices/managing-credentials/) so I won't delve too far into it - I will just show you how to setup a quick username and password storage using a generic database saved connection (don't worry, it doesn't connect to a database until you call it - a database name is just used as a key to retrieve your username and password so you can save different credentials for different logins with keyring). 
 
-`keyring::key_set(service = "my-database", 
-                 username = "f.igali@sheffield.ac.uk")`
+```keyring::key_set(service = "my-database", username = "f.igali@sheffield.ac.uk")
+```
 
 Using their example, I set the service to be called 'my-database' but feel free to call this 'Gorilla' or whatever else makes sense to you - it is the name of the connection. For Username, enter your Gorilla username as I have done above. When you run the command, you will be able to set a password that will be retrievable once you type it in. 
 
