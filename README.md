@@ -50,7 +50,7 @@ You can email [me](mailto::f.igali@sheffield.ac.uk).
 
 Well, that is a good question. Probably in R studio - the first thing we'll need to do is install some packages. Here is a screenshot of what my R studio setup looks like for those that are unfamiliar with it:
 
-![R studio setup](https://github.com/University-of-Sheffield-EduTech/data-endpoint-gorilla.io/blob/master/Images/R-Studio.png)
+![R studio setup]({{site.url}}/Images/categories/R-Studio.png )
 
 So, once you have R Studio open, let's install the packages we need for this one - they're loaded at the top of the script but for those that are new to R, let's show you how to install them. 
 
