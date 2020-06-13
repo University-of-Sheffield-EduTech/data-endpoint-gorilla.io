@@ -120,7 +120,7 @@ setwd(outDir)
 #this is the ID of your experiment
 experiment_id = '19847'
 
-#this is the verison you want to download  
+#this is the version you want to download  
 experiment_version = '2'
 
 #this is the node you want to download
