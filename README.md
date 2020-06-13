@@ -357,7 +357,7 @@ Once we get a URL, we will move on and R will cancel the loop.
 
 ### Ok but what does a return URL actually look like that Gorilla sends back?
 
-Well, when we query the report page, if the build has been succesful, Gorilla will send back a URL for downloading the data that looks something like this (there are parameters in the URL that tell you what time the request was made, a signature and so on - you can see the experiment ID and the version in it and that we are asking for a ZIP file type):
+Well, when we query the report page, if the build has been succesful, Gorilla will send back a URL for downloading the data that looks something like this (there are parameters in the URL that tell you what time the request was made, a signature and so on - you can see the experiment ID and the version in it and that we are asking for a ZIP file type) - **please note, I am adding the URL for illustrative purposes here - it is test data where I randomly clicked 3 times through the Big Five Personality Inventory** - the URL itself is just to show you what R is generating on the return:
 
 *https://gorilla.blob.core.windows.net/gorillametrics/data_exp_19847-v2.zip?se=2020-06-13T10%3A53%3A06Z&sp=r&sv=2017-07-29&sr=b&sig=DknIbdgVPPBuzADth%2Bjbji48So0xq6Evcbg18vVaqDE%3D*
 
