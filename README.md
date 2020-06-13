@@ -51,7 +51,7 @@ Mostly as a programmer, I am just overworked (and a tad bit lazy with UX after I
 
 You can email [me](mailto::f.igali@sheffield.ac.uk). 
 
-## Ok, so where we get started? 
+## Ok, so where do we get started? 
 
 Well, that is a good question. Probably in R studio - the first thing we'll need to do is install some packages. Here is a screenshot of what my R studio setup looks like for those that are unfamiliar with it:
 
