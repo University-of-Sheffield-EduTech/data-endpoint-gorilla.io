@@ -167,7 +167,7 @@ So once keyring is setup, how do we actually launch it/add it to our active sess
 
 `library("keyring")`
 
-## Cool, I got it installed and all, but make it do something now?
+## Cool, I got it installed and all, but can we make it do something now?
 
 Well, there is a very good tutorial on the benefits and what keyring can do as well as other methods for securing your credentials, that is available [here](https://db.rstudio.com/best-practices/managing-credentials/) so I won't delve too far into it - I will just show you how to setup a quick username and password storage using a generic database saved connection (don't worry, it doesn't connect to a database until you call it - a database name is just used as a key to retrieve your username and password so you can save different credentials for different logins with keyring). 
 
@@ -189,7 +189,7 @@ In my R script, I quite simply do the following:
 
 ### That's cool, but what does that mean?
 
-Well, the first line is a comment so that's just telling you, the user, what it does. The second line creates 'login' and we tell R that we want it to be a list - this list will have two elements, 'email' and 'password' which are retrieved using keyring'. 
+Well, the first line is a comment so that's just telling you, the user, what it does. The second line creates 'login' and we tell R that we want it to be a list - this list will have two elements, 'email' and 'password' which are retrieved using keyring. 
 
 ## Now that we got credentials out the way, let's setup the rest of the libraries we need!
 
@@ -218,7 +218,7 @@ tree_node_key = 'all'
 
 ### Again, cool, but what does it do?
 
-Well, putting aside all the comments, the first thing we do is define a directory where we want our data to go on our PC - you'll notice I use \\ instead of \. This is because R will stop at \ and your code will break as it will be intepreted as a signal for R, as opposed to being part of a directory path. 
+Well, putting aside all the comments, the first thing we do is define a directory where we want our data to go on our PC - you'll notice I use double slashes instead of a single slash. This is because R will stop at \ and your code will break as it will be intepreted as a signal for R, as opposed to being part of a directory path. 
 
 Then we go (set) to the directory we just set up - setwd() just takes us to the working directory so that when we download the data, we aren't downloading it somewhere *random*. 
 
