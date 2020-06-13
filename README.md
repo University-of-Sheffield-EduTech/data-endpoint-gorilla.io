@@ -353,7 +353,7 @@ This is basically a do-while loop - do while means **do this while this is true,
 
 Once we get a URL, we will move on and R will cancel the loop. 
 
-The next bit is fairly self-explanatory - we download the zip file, name it 'downloader.zip' and we set a mode to download in (rememebr, we asked for all nodes so we're downloading all the CSVs for the experiment). 
+The next bit is fairly self-explanatory - we download the zip file, name it 'downloader.zip' and we set a mode to download in (remember, we asked for all nodes so we're downloading all the CSVs for the experiment from every node). 
 
 
 ```r
