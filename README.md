@@ -14,8 +14,11 @@ The full R file for downloading is available in this repo (Github slang for repo
 Well, whenever you do something on the web that requires an interaction with a database or retrieving anything, you need to make some sort of action that will tell it what to do. In this case, we are going to ask **Gorilla** for a couple of things:
 
 1) We will go through the API (the non-published bit that internally points to different URLs - which are known as **endpoints**  to call the login page and then send our login details). <br>
+
 2) We will then call the experiment page that you would call visually - except we are going to call the **endpoints** that the buttons refer to when you press on 'Generate Data' and 'Download Data' - I will show you how to edit. <br>
+
 3) Just like the Gorilla script that is called on the page when you press 'Generate Data', we will ping the server every 3 seconds (anymore would be spamming!) till our report is ready and we can download it - we will do this using a **do-while** loop in R. <br>
+
 4) Once the file is ready, we download the file and then we unzip it and stick all the CSVs we download together (if you want to separate out your CSVs, that's beyond the scope of this tutorial. This is purely for 'how do I get the data out of Gorilla without logging in on an actual webpage' - something which you can automate if you need!. 
 
 ## What type of HTTP requests are there and which ones do we need?
@@ -32,7 +35,7 @@ It sends data - such as credentials to a login endpoint.
 
 ## Ok, but how do we get setup in R to start sending these requests?
 
-Well, good question! Emma James has a brilliant tutorial about getting started with Tidyverse in R that gives you pointers about how to get setup for Tidyverse use in R for your Gorilla data - available [here](https://emljames.github.io/GorillaR/index.html).
+Well, good question! Emma James has a brilliant tutorial about getting started with Tidyverse in R that gives you pointers about how to get setup for Tidyverse use in R for your Gorilla data - available [here](https://emljames.github.io/GorillaR/index.html). Emma's tutorial has links to places where you can learn to start setting up and using R!
 
 *What is R?* R is a statistical scripting language that is designed, amongst other things, for data analysis and data science. You can download R the language and use an R console, or you can make it easier on yourself if you are new and download **R Studio**. R Studio is basically a contained environment in which to run R and then to manage your packages (basically, R's versions of addons where people have put together functions so you don't have to reinvent the wheel). 
 
