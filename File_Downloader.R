@@ -11,13 +11,13 @@ outDir = "C:\\Users\\Ferenc\\Desktop\\Gorilla_Test"
 #we go to that directory
 setwd(outDir)
 
-#this is the ID of your experiment
+#this is the ID of your experiment - change this to the ID of the one that you are interested in!
 experiment_id = '19847'
 
-#this is the verison you want to download  
+#this is the version you want to download  
 experiment_version = '2'
 
-#this is the node you want to download
+#this is the node you want to download - in this case, we want them all
 tree_node_key = 'all'
 
 #this is to retrieve your password and username 
