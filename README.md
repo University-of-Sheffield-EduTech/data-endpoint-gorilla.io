@@ -21,7 +21,7 @@ Well, whenever you do something on the web that requires an interaction with a d
 
 3) Just like the Gorilla script that is called on the page when you press 'Generate Data', we will ping the server every 3 seconds (anymore would be spamming!) till our report is ready and we can download it - we will do this using a **do-while** loop in R. <br>
 
-4) Once the file is ready, we download the file and then we unzip it and stick all the CSVs we download together (if you want to separate out your CSVs, that's beyond the scope of this tutorial. This is purely for 'how do I get the data out of Gorilla without logging in on an actual webpage' - something which you can automate if you need!. 
+4) Once the file is ready, we download the file and then we unzip it and stick all the CSVs we download together (if you want to separate out your CSVs, that's beyond the scope of this tutorial). This is purely for 'how do I get the data out of Gorilla without logging in on an actual webpage' - something which you can automate if you need!. 
 
 ## What type of HTTP requests are there and which ones do we need?
 
