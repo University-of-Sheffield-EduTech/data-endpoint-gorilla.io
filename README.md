@@ -374,7 +374,7 @@ Then the final bit is just a bit of plyr magic to basically list all file types 
 
 Now you can edit this to your hearts content to aim for a specific file or do whatever you like with the files once you have them - that is beyond the scope of this tutorial though! I can possibly follow up in the future with some basic data analysis and cleaning/organising/analysing your data, but for this tutorial, I just wanted to show how you can download files from R without having to use the web interface. 
 
-# Thank you for reading this far if you made it - any questions, please direct them to [f.igali@sheffield.ac.uk](f.igali@sheffield.ac.uk). 
+# Thank you for reading this far if you made it - any questions, please direct them to [f.igali@sheffield.ac.uk](https://www.sheffield.ac.uk/education/people/academic/ferenc-igali). 
 
 I hope you enjoyed this relatively short tutorial and hopefully it's given you a bit of insight into how websites communicate with the outside world/users/internally. 
 
