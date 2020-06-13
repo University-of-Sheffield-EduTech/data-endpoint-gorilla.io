@@ -3,11 +3,13 @@
 
 # Welcome to the Tutorial!
 
+## Tutorial Last Updated: 13/06/2020 - Version 2.0
+
 This tutorial is intended for people who are new to HTTP GET/POST requests and would like to utilise Gorilla's endpoints to pull down data automatically. I am uploading an example in R but will follow with examples in Python and cURL sometime later in the summer (of 2020). 
 
 The full R file for downloading is available in this repo (Github slang for repository where all these files are stored). If you are confident with R, just download the file and just have a quick glance over this short text. 
 
-## This is a fairly short tutorial but will cover a number of concepts 
+### This is a fairly short tutorial but will cover a number of concepts - if you struggle with any, just send me an email - I'd be happy to answer any questions about the contents here!
 
 ## First, what is a HTTP Request? 
 
@@ -353,7 +355,13 @@ This is basically a do-while loop - do while means **do this while this is true,
 
 Once we get a URL, we will move on and R will cancel the loop. 
 
-The next bit is fairly self-explanatory - we download the zip file, name it 'downloader.zip' and we set a mode to download in (remember, we asked for all nodes so we're downloading all the CSVs for the experiment from every node). 
+### Ok but what does a return URL actually look like that Gorilla sends back?
+
+Well, when we query the report page, if the build has been succesful, Gorilla will send back a URL for downloading the data that looks something like this (there are parameters in the URL that tell you what time the request was made, a signature and so on - you can see the experiment ID and the version in it and that we are asking for a ZIP file type):
+
+*https://gorilla.blob.core.windows.net/gorillametrics/data_exp_19847-v2.zip?se=2020-06-13T10%3A53%3A06Z&sp=r&sv=2017-07-29&sr=b&sig=DknIbdgVPPBuzADth%2Bjbji48So0xq6Evcbg18vVaqDE%3D*
+
+The next bit of code is fairly self-explanatory - we download the zip file, name it 'downloader.zip' and we set a mode to download in (remember, we asked for all nodes so we're downloading all the CSVs for the experiment from every node). 
 
 
 ```r
