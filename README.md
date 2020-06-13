@@ -220,7 +220,7 @@ tree_node_key = 'all'
 
 ### Again, cool, but what does it do?
 
-Well, putting aside all the comments, the first thing we do is define a directory where we want our data to go on our PC - you'll notice I use double slashes instead of a single slash. This is because R will stop at \ and your code will break as it will be intepreted as a signal for R, as opposed to being part of a directory path. 
+Well, putting aside all the comments, the first thing we do is define a directory where we want our data to go on our PC - you'll notice I use double slashes instead of a single slash. This is because R will stop at a single slash and your code will break as it will be intepreted as a signal for R, as opposed to being part of a directory path. 
 
 Then we go (set) to the directory we just set up - setwd() just takes us to the working directory so that when we download the data, we aren't downloading it somewhere *random*. 
 
@@ -319,7 +319,7 @@ What we are doing here is concatenating/pasting together a URL and then giving i
 
 Next bit of code is fairly straightforward: 
 
-We basically try downloading our data. It won't happen because just like the message you get from Gorilla about the data waiting to be downloaded and ready, we get the same message from the endpoint (which is how they display it to you using XHR/Ajax). Gorilla stores these in blob storage on Azure so we're just trying to retrieve our specific data storage.  
+We basically try downloading our data. It won't happen because just like the message you get from Gorilla about the data waiting to be downloaded and ready, we get the same message from the endpoint (which is how they display it to you using XHR/Ajax). Gorilla stores these in blob storage on Azure so we're just trying to retrieve our specific data storage from the blob.  
 ```r
 
 #set up initial variables for download 
@@ -331,7 +331,7 @@ file_download_url <- toString(file_download_url_resp[2])
 
 ```
 
-The last line just literally retrieves the content from the webpage that we are GETting. Before Gorilla is ready to give us any data, we won't get a URL back, we'll get back a 'THis report is being generated' which we use in the next bit of code. 
+The last line just literally retrieves the content from the webpage that we are GETting. Before Gorilla is ready to give us any data, we won't get a URL back in the contents of that report page, we'll get back a 'This report is being generated' piece of text which we use in the next bit of code. 
 
 ```r
 #this do while basically waits until the report is ready and keeps pinging the server - I use 3 second pings like the gorilla metrics JS code
@@ -349,7 +349,7 @@ while (file_download_url == "The report is currently being generated") {
 
 ```
 
-This is basically a do-while loop - do while means **do this while this is true, stop once no longer true**. So while the contents is not a URL but a message saying 'The report is being currently generated', it will keep looping. It loops every 3 seconds, just like the JavaScript version that gets called on the page when you wait for your data to become available. 
+This is basically a do-while loop - do while means **do this while this is true, stop once no longer true**. So while the contents are not a URL but a message saying 'The report is being currently generated', it will keep looping. It loops every 3 seconds, just like the JavaScript version that gets called on the page when you wait for your data to become available. 
 
 Once we get a URL, we will move on and R will cancel the loop. 
 
