@@ -175,6 +175,8 @@ Well, there is a very good tutorial on the benefits and what keyring can do as w
 keyring::key_set(service = "my-database", username = "f.igali@sheffield.ac.uk")
 ```
 
+**This line of code is not in my script since I don't want to be setting a password and username each time - I do this once, in my R console or in a new R script just to set it up**.
+
 Using their example, I set the service to be called 'my-database' but feel free to call this 'Gorilla' or whatever else makes sense to you - it is the name of the connection. For Username, enter your Gorilla username as I have done above. When you run the command, you will be able to set a password that will be retrievable once you type it in. 
 
 In my R script, I quite simply do the following: 
