@@ -9,6 +9,7 @@
 #THE MAJOR CAVEAT WITH THIS SCRIPT IS: if you have special characters in your password and you are using a Mac, there is an encoding error with R and the HTTR package. 
 # There are two workarounds: one is to make a temporary password change on Gorilla that doesn't include special characters or two is to use a Windows machine to run this script (or run under a Windows emulation)
 
+#The Mac issue is described here: https://github.com/r-lib/httr/issues/532 - you can use the below POST and GET calls with the authenticate parameter set to ntlm on a Mac - if you are comfortable doing this, this should solve your issue.
 
 #Here are all the libraries we need for this to work - please note, you need to install them first with install.packages('library') or install them in R studio
 
