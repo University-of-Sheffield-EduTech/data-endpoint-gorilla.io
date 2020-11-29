@@ -17,6 +17,7 @@ library(plyr)
 library(downloader)
 library(keyring)
 library(data.table)
+library(xlsx)
 
 #we set up a directory to store our downloaded files - you will have to choose your own output file
 outDir = "C:\\Users\\Ferenc\\Desktop\\Gorilla Preview Tester"
@@ -83,6 +84,10 @@ for (url in 1:length(preview_download_urls$Response)) {
     
   }
   
+  if (content_type_you_need_to_save == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+    file_end = ".xlsx"
+  }
+  
   
   file_download_url <- experiment_download_url$url
   
@@ -90,9 +95,13 @@ for (url in 1:length(preview_download_urls$Response)) {
   ##If you want to save participant ID or something else, you can use the columns that you have in your data to download as this data frame just contains the rows that have URLs in
   file_name_saver <- paste(url, file_end, sep="")
   
+
   
-  #download the file
-  download(file_download_url,file_name_saver)
+  
+  download(file_download_url,file_name_saver, mode = "wb")
+
+  
+
   
   
 } 
