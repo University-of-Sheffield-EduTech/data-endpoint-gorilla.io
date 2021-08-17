@@ -1,5 +1,7 @@
 #Here are all the libraries we need for this to work - please note, you need to install them first with install.packages('library') or install them in R studio
 
+#httr cannot have special characters on a Mac due to encoding - this is a long standing issue. If you are on a Mac running this R code, please change your password temporarily to not use special characters (or run this through Parallels or Bootcamp or a Windows machine if possible - or use a different HTTP library)
+
 library(httr)
 library(plyr)
 library(downloader)
