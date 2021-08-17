@@ -3,7 +3,9 @@
 
 # Welcome to the Tutorial!
 
-## Tutorial Last Updated: 13/06/2020 - Version 2.0
+## Tutorial Last Updated: 17/08/2021 - Version 3.0
+
+## Edited since 2020 - Gorilla now runs on a new subdomain app.gorilla.sc - so all changes in the R code (or any other language) now need to be directed to app.gorrila.sc - rather than gorilla.sc.
 
 This tutorial is intended for people who are new to HTTP GET/POST requests and would like to utilise Gorilla's endpoints to pull down data automatically. I am uploading an example in R but will follow with examples in Python and cURL sometime later in the summer (of 2020). 
 
@@ -91,7 +93,7 @@ login <- list(
 )
 
 #this logs you in
-login_res <- POST("https://gorilla.sc/api/login", body = login, encode = "form")
+login_res <- POST("https://app.gorilla.sc/api/login", body = login, encode = "form")
 
 #these are the options you get when downloading your data
 download_options_2 <- list (
@@ -103,10 +105,10 @@ download_options_2 <- list (
 ) 
 
 #request report
-report_generate_request <- POST(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/",tree_node_key,"/report/build", sep = "", collapse = NULL), body = download_options_2, encode = "json")
+report_generate_request <- POST(paste("https://app.gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/",tree_node_key,"/report/build", sep = "", collapse = NULL), body = download_options_2, encode = "json")
 
 #set up initial variables for download 
-experiment_download_url <- GET(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/", tree_node_key,"/report/download", sep = "", collapse = NULL))
+experiment_download_url <- GET(paste("https://app.gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/", tree_node_key,"/report/download", sep = "", collapse = NULL))
 
 file_download_url_resp <- content(experiment_download_url)
 
@@ -114,9 +116,9 @@ file_download_url <- toString(file_download_url_resp[2])
 
 #this do while basically waits until the report is ready and keeps pinging the server - I use 3 second pings like the gorilla metrics JS code
 while (file_download_url == "The report is currently being generated") {
-  experiment_download_tester <- GET(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version,"/node/",tree_node_key,"/report", sep = "", collapse = NULL))
+  experiment_download_tester <- GET(paste("https://app.gorilla.sc/api/experiment/", experiment_id, "/", experiment_version,"/node/",tree_node_key,"/report", sep = "", collapse = NULL))
   
-  experiment_download_url <- GET(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/",tree_node_key,"/report/download", sep = "", collapse = NULL))
+  experiment_download_url <- GET(paste("https://app.gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/",tree_node_key,"/report/download", sep = "", collapse = NULL))
   
   file_download_url_resp <- content(experiment_download_url)
   
