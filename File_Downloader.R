@@ -27,7 +27,7 @@ login <- list(
 )
 
 #this logs you in
-login_res <- POST("https://gorilla.sc/api/login", body = login, encode = "form")
+login_res <- POST("https://app.gorilla.sc/api/login", body = login, encode = "form")
 
 #these are the options you get when downloading your data
 download_options_2 <- list (
@@ -39,10 +39,10 @@ download_options_2 <- list (
 ) 
 
 #request report
-report_generate_request <- POST(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/",tree_node_key,"/report/build", sep = "", collapse = NULL), body = download_options_2, encode = "json")
+report_generate_request <- POST(paste("https://app.gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/",tree_node_key,"/report/build", sep = "", collapse = NULL), body = download_options_2, encode = "json")
 
 #set up initial variables for download 
-experiment_download_url <- GET(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/", tree_node_key,"/report/download", sep = "", collapse = NULL))
+experiment_download_url <- GET(paste("https://app.gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/", tree_node_key,"/report/download", sep = "", collapse = NULL))
 
 file_download_url_resp <- content(experiment_download_url)
 
@@ -50,9 +50,9 @@ file_download_url <- toString(file_download_url_resp[2])
 
 #this do while basically waits until the report is ready and keeps pinging the server - I use 3 second pings like the gorilla metrics JS code
 while (file_download_url == "The report is currently being generated") {
-  experiment_download_tester <- GET(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version,"/node/",tree_node_key,"/report", sep = "", collapse = NULL))
+  experiment_download_tester <- GET(paste("https://app.gorilla.sc/api/experiment/", experiment_id, "/", experiment_version,"/node/",tree_node_key,"/report", sep = "", collapse = NULL))
   
-  experiment_download_url <- GET(paste("https://gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/",tree_node_key,"/report/download", sep = "", collapse = NULL))
+  experiment_download_url <- GET(paste("https://app.gorilla.sc/api/experiment/", experiment_id, "/", experiment_version, "/node/",tree_node_key,"/report/download", sep = "", collapse = NULL))
   
   file_download_url_resp <- content(experiment_download_url)
   
